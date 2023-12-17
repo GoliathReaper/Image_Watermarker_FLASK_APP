@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Watermarker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <style>
+        /* Custom styles can be added here */
+        /* Adjustments for your watermarking app */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa; /* Set your desired background color */
+        }
+
+        header {
+            background-color: #ffffff; /* Header background color */
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Header shadow */
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #212529; /* Adjust the color */
+        }
+
+        .navbar-brand svg {
+            width: 40px;
+            height: auto;
+            margin-right: 5px;
+        }
+
+        .navbar-nav .nav-link {
+            color: #6c757d; /* Adjust the color */
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #495057; /* Adjust hover color */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .footer {
+            background-color: #ffffff; /* Footer background color */
+            border-top: 1px solid #dee2e6; /* Footer border */
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="d-flex align-items-center justify-content-centre py-3 shadow-sm">
+        <div class="container">
+            <a href="/" class="navbar-brand d-flex align-items-center">
+                <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+                <span class="fs-4">Image Watermarker</span>
+            </a>
+        </div>
+    </header>
+
+    <div class="container mt-5">
+        <div id="upload">
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="fileInput" class="form-label">Select Image:</label>
+                    <input type="file" class="form-control" id="fileInput" name="file">
+                </div>
+                <div class="mb-3">
+                    <label for="fname" class="form-label">Copyright Text:</label>
+                    <input type="text" class="form-control" id="fname" name="fname">
+                </div>
+                <div class="mb-3">
+                    <label for="opacityRange" class="form-label">Opacity:</label>
+                    <div class="d-flex align-items-center">
+                        <div class="price me-3" id="price">185</div>
+                        <input type="range" class="form-range" min="1" max="255" step="1" id="opacityRange" name="opacity" value="185">
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-primary" value="Convert">
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <span>© 2023 Company, Inc</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+</html>
