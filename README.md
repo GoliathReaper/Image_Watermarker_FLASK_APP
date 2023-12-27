@@ -16,7 +16,7 @@ Clone the repository:
 
 bash
 Copy code
-git clone https://github.com/your-username/image-watermark-app.git
+git clone https://github.com/GoliathReaper/Image_Watermarker_FLASK_APP.git
 Navigate to the project directory:
 
 Install dependencies:
